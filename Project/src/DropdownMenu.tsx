@@ -28,7 +28,7 @@ const DropdownMenu: React.FC = () => {
       </button>
       {open && (
         <div className="dropdown-menu">
-          <div className="dropdown-item">5</div>
+          <div onClick={} className="dropdown-item">5</div>
           <div className="dropdown-item">10</div>
           <div className="dropdown-item">15</div>
           <div className="dropdown-item">20</div>

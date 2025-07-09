@@ -47,6 +47,7 @@ const MainComponent = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const postPerPage = 10 ;
     const [searchTerm, setSearchTerm] = useState('book');
+    const [itemsPerPage, setItemsPerPage] = useState(5); // Stato per il numero di elementi per pagina
 
 
     useEffect(() => {
@@ -95,7 +96,9 @@ const MainComponent = () => {
     }
 
    
- 
+    function handlePageChange(selectedItem: { selected: number }) {
+        if (selectedItem.selected === 5) {
+        setItemsPerPage(itemsPerPage);
     
  
     const pageCount = Math.ceil( 300 / postPerPage);
