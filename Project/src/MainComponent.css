@@ -1,0 +1,51 @@
+.titleStyle{
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.textTruncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3; 
+    -webkit-box-orient: vertical;
+    color : black;
+    font-weight: 600;
+}
+
+.imgStyle {
+    width: 150px;
+    height: 200px;
+   
+}
+
+
+.mainContainer {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-evenly;
+    gap: 10rem;
+  
+    padding: 5rem;
+    
+    align-items: center;
+    
+}
+
+.linkStyle {
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    font-weight: bolder;
+    color : rgb(206, 25, 25);
+}
+
+.cardStyle{
+  
+
+    width: 400px;
+    width: 400px;
+}
+
