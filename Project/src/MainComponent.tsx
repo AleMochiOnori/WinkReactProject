@@ -2,6 +2,11 @@ import { useEffect, useState } from 'react';
 import Card from 'react-bootstrap/Card';
 import './MainComponent.css';
 import SearchBarComponent from './SearchBarComponent';
+import './react-paginate-custom.css';
+import ReactPaginate from 'react-paginate';
+import MenuPagination from './DropdownMenu';
+
+
 
 
 interface BooksApiResponse {
@@ -39,8 +44,13 @@ interface VolumeInfo {
 const MainComponent = () => {
     const [books, setBooks] = useState<BooksApiResponse | null>(null); // Stato per memorizzare la risposta
     const [error, setError] = useState<string | null>(null);
+    const [currentPage, setCurrentPage] = useState(1);
+    const postPerPage = 10 ;
+    const [searchTerm, setSearchTerm] = useState('book');
+
+
     useEffect(() => {
-        fetch(`https://www.googleapis.com/books/v1/volumes?q=%7Bsearch`)
+        fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&book&startIndex=${(currentPage - 1 ) * postPerPage}&maxResults=${postPerPage}`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Errore di rete o del server');
@@ -54,7 +64,27 @@ const MainComponent = () => {
                 console.error('Errore:', error);
                 setError(error.message);
             });
-    }, []);
+    }, [currentPage]);
+
+    function filterTerm(term: string) {
+        fetch(`https://www.googleapis.com/books/v1/volumes?q=${term || 'book'}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Errore di rete o del server');
+                }
+                return response.json();
+            })
+            .then(data => {
+                setBooks(data); // Imposta i dati filtrati
+                setCurrentPage(1); // Torna alla prima pagina dopo una ricerca
+            })
+            .catch(error => {
+                console.error('Errore:', error);
+                setError(error.message);
+            });
+            setSearchTerm(term || 'book');
+            setCurrentPage(1);
+    }
 
     if (error) {
         return <div className="error">Errore: {error}</div>;
@@ -64,31 +94,18 @@ const MainComponent = () => {
         return <div>Caricamento...</div>;
     }
 
-    function filterTerm(term: string) {
-        console.log(term);
-            // Funzione per impostare il termine di ricerca
-            fetch(`https://www.googleapis.com/books/v1/volumes?q=${term || 'book'}`)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Errore di rete o del server');
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    setBooks(data); // Imposta i dati filtrati
-                })
-                .catch(error => {
-                    console.error('Errore:', error);
-                    setError(error.message);
-                });
-
-    }
-        
-
+   
+ 
+    
+ 
+    const pageCount = Math.ceil( 300 / postPerPage);
 
     return (
         <>
-        <SearchBarComponent setSearchTerm={filterTerm}/>
+        <div className='menuContainer'>
+            <SearchBarComponent setSearchTerm={filterTerm}/>
+            <MenuPagination />
+        </div>
         <div className='mainContainer'>
             {books.items && books.items.map((item) => (
                 <Card className='cardStyle' key={item.id}>
@@ -103,7 +120,30 @@ const MainComponent = () => {
                 </Card>
             ))}
         </div>
-    </>
+            {/* Paginazione */}
+            <ReactPaginate
+                breakLabel="..."
+                nextLabel="next >"
+                onPageChange={(selectedItem) => setCurrentPage(selectedItem.selected + 1)}
+                pageRangeDisplayed={4}
+                pageCount={pageCount}
+                forcePage={currentPage - 1}
+                previousLabel="< previous"
+                renderOnZeroPageCount={null}
+                containerClassName="pagination"
+                pageClassName="page-item"
+                pageLinkClassName="page-link"
+                previousClassName="page-item"
+                previousLinkClassName="page-link"
+                nextClassName="page-item"
+                nextLinkClassName="page-link"
+                breakClassName="page-item"
+                breakLinkClassName="page-link"
+                activeClassName="active"
+            />
+
+            
+        </>
     );
 }
 export default MainComponent;

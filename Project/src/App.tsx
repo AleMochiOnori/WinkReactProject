@@ -1,5 +1,10 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import MainComponent from './mainComponent';
+import MainComponent from './MainComponent';
+
+
+
+
+
 
 function App() {
     return (
