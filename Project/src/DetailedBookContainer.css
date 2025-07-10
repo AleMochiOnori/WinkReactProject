@@ -25,13 +25,13 @@
     width: 100%;
     margin: 0 auto; /* Per centrare il box */
     border: #333 2px solid;
-    background-color: rgb(250, 177, 109);
+    background-color: rgb(48, 46, 46);
 }
 
 .titleStyle {
     font-size: 2.5rem;
     font-weight: bold;
-    color: #333;
+    color: #f5efef;
     margin-top: 3rem;
 }
 
@@ -54,7 +54,7 @@ p {
 
 .publishStyle{
 
-    color: blueviolet
+    color: rgb(20, 20, 21)
 
 }
 
@@ -70,9 +70,26 @@ body {
 }
 
 .buyStyle {
+    display: flex;
     text-decoration: none;
     color: black;
     font-size: 20px;
     font-weight: bolder;
-    color : rgb(206, 25, 25);
+    color : rgb(255, 255, 255);
+    padding: 10px;
+    width: 12rem;
+    height: 2.5rem;
+    background-color: rgb(48, 46, 46);
+    border-radius: 20px;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.buyStyle:hover {
+    font-size: 25px;
+    color: white;
+    transition: 0.3s;
+    width: 14rem;
+    height: 3.5rem;
 }

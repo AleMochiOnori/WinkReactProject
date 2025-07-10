@@ -3,10 +3,6 @@ import MainComponent from './MainComponent';
 import DetailedBookComponent from './DetailedBookComponent';
 
 
-
-
-
-
 function App() {
     return (
         <BrowserRouter>

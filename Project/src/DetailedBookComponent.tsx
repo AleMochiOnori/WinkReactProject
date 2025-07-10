@@ -80,7 +80,7 @@ const DetailedBookComponent = () => {
             <p className='descriptionStyle' dangerouslySetInnerHTML={{__html: book?.volumeInfo.description}}/>
             <p className='publishStyle'>Pubblicato nel {book?.volumeInfo.publishedDate}</p>
             {book.saleInfo?.buyLink ? (
-                <a  className="buyStyle" href={book.saleInfo.buyLink} target="_blank" rel="noopener noreferrer">
+                <a  className="buyStyle" href={book.saleInfo.buyLink} target="_blank" rel="noopener noreferre">
                     Acquista il libro!!
                 </a>
                 ) : (
