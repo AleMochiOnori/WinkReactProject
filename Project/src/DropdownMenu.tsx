@@ -1,7 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './DropdownMenu.css';
 
-const DropdownMenu: React.FC = () => {
+
+interface DropdownMenuProps {
+  value: number;
+  onSelect: (value: number) => void;
+}
+
+const DropdownMenu: React.FC<DropdownMenuProps> = ({ value, onSelect }) => {
   const [open, setOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
@@ -9,7 +15,12 @@ const DropdownMenu: React.FC = () => {
     setOpen(prev => !prev);
   };
 
-  // Chiude il menu cliccando fuori
+  const handleSelect = (value: number) => {
+    if (onSelect) onSelect(value);
+    setOpen(false);
+  };
+
+
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
@@ -28,10 +39,15 @@ const DropdownMenu: React.FC = () => {
       </button>
       {open && (
         <div className="dropdown-menu">
-          <div onClick={} className="dropdown-item">5</div>
-          <div className="dropdown-item">10</div>
-          <div className="dropdown-item">15</div>
-          <div className="dropdown-item">20</div>
+          {[5, 10, 15, 20].map((item) => (
+            <div
+              className="dropdown-item"
+              key={item}
+              onClick={() => handleSelect(item)}
+            >
+              {item}
+            </div>
+          ))}
         </div>
       )}
     </div>

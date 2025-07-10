@@ -4,7 +4,7 @@ import './MainComponent.css';
 import SearchBarComponent from './SearchBarComponent';
 import './react-paginate-custom.css';
 import ReactPaginate from 'react-paginate';
-import MenuPagination from './DropdownMenu';
+import DropdownMenu from './DropdownMenu';
 
 
 
@@ -45,9 +45,8 @@ const MainComponent = () => {
     const [books, setBooks] = useState<BooksApiResponse | null>(null); // Stato per memorizzare la risposta
     const [error, setError] = useState<string | null>(null);
     const [currentPage, setCurrentPage] = useState(1);
-    const postPerPage = 10 ;
+    const [postPerPage, setPostPerPage] = useState(10);
     const [searchTerm, setSearchTerm] = useState('book');
-    const [itemsPerPage, setItemsPerPage] = useState(5); // Stato per il numero di elementi per pagina
 
 
     useEffect(() => {
@@ -65,7 +64,7 @@ const MainComponent = () => {
                 console.error('Errore:', error);
                 setError(error.message);
             });
-    }, [currentPage]);
+    }, [currentPage, postPerPage, searchTerm]);
 
     function filterTerm(term: string) {
         fetch(`https://www.googleapis.com/books/v1/volumes?q=${term || 'book'}`)
@@ -96,18 +95,17 @@ const MainComponent = () => {
     }
 
    
-    function handlePageChange(selectedItem: { selected: number }) {
-        if (selectedItem.selected === 5) {
-        setItemsPerPage(itemsPerPage);
-    
+
  
-    const pageCount = Math.ceil( 300 / postPerPage);
+    const pageCount = Math.min(30, Math.ceil(300 / postPerPage));
+
+   
 
     return (
         <>
         <div className='menuContainer'>
             <SearchBarComponent setSearchTerm={filterTerm}/>
-            <MenuPagination />
+            <DropdownMenu value={postPerPage} onSelect={(val) => { setPostPerPage(val); setCurrentPage(1); }} />
         </div>
         <div className='mainContainer'>
             {books.items && books.items.map((item) => (
