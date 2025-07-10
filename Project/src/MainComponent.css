@@ -1,4 +1,4 @@
-.titleStyle{
+.stileTitolo {
     font-size: 2rem;
     font-weight: bold;
     color: #333;
@@ -18,7 +18,6 @@
 .imgStyle {
     width: 150px;
     height: 200px;
-   
 }
 
 .menuContainer {
@@ -33,11 +32,8 @@
     flex-wrap: wrap; 
     justify-content: space-evenly;
     gap: 10rem;
-  
     padding: 5rem;
-    
     align-items: center;
-    
 }
 
 .linkStyle {
@@ -49,9 +45,22 @@
 }
 
 .cardStyle{
-  
-
     width: 400px;
     width: 400px;
 }
+
+
+.goToPageStyle {
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    font-weight: bolder;
+    color : rgb(206, 25, 25);
+}
+
+
+
+
+
+
 

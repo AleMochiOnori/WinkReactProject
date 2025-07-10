@@ -1,0 +1,78 @@
+.detailed-book-container{
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    gap: 20px;
+  
+    
+}
+
+.right-content {
+    padding: 3rem;
+  
+}
+
+.top-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: center;
+
+    /* Riduci padding per ridurre la dimensione del box */
+    padding: 2rem;
+
+    /* Imposta una larghezza fissa o massima */
+    width: 100%;
+    margin: 0 auto; /* Per centrare il box */
+    border: #333 2px solid;
+    background-color: rgb(250, 177, 109);
+}
+
+.titleStyle {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-top: 3rem;
+}
+
+.bottom-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 3rem;
+}
+
+p {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.authorStyle{
+    font-size: 30px;
+   
+}
+
+.publishStyle{
+
+    color: blueviolet
+
+}
+
+.ImageStyle {
+    width: 200px;
+    height: 300px;
+}
+
+
+
+body {
+    width: 100%;
+}
+
+.buyStyle {
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    font-weight: bolder;
+    color : rgb(206, 25, 25);
+}

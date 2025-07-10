@@ -5,6 +5,7 @@ import SearchBarComponent from './SearchBarComponent';
 import './react-paginate-custom.css';
 import ReactPaginate from 'react-paginate';
 import DropdownMenu from './DropdownMenu';
+import { Link } from 'react-router-dom';
 
 
 
@@ -50,7 +51,7 @@ const MainComponent = () => {
 
 
     useEffect(() => {
-        fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&book&startIndex=${(currentPage - 1 ) * postPerPage}&maxResults=${postPerPage}`)
+        fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&startIndex=${(currentPage - 1 ) * postPerPage}&maxResults=${postPerPage}`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Errore di rete o del server');
@@ -75,10 +76,11 @@ const MainComponent = () => {
                 return response.json();
             })
             .then(data => {
-                setBooks(data); // Imposta i dati filtrati
-                setCurrentPage(1); // Torna alla prima pagina dopo una ricerca
+                setBooks(data); 
+                setCurrentPage(1); 
             })
             .catch(error => {
+
                 console.error('Errore:', error);
                 setError(error.message);
             });
@@ -93,9 +95,8 @@ const MainComponent = () => {
     if (!books) {
         return <div>Caricamento...</div>;
     }
-
-   
-
+  
+  
  
     const pageCount = Math.min(30, Math.ceil(300 / postPerPage));
 
@@ -112,11 +113,11 @@ const MainComponent = () => {
                 <Card className='cardStyle' key={item.id}>
                     <Card.Img className='imgStyle' variant="top" src={item.volumeInfo.imageLinks?.thumbnail || "holder.js/100px180"} />
                     <Card.Body>
-                        <Card.Title className='titleStyle'>{item.volumeInfo.title}</Card.Title>
+                        <Card.Title className='stileTitolo'>{item.volumeInfo.title}</Card.Title>
                         <Card.Text className='textTruncate'>
                             {item.volumeInfo.description ? item.volumeInfo.description : "Nessuna descrizione disponibile"}
                         </Card.Text>
-                     <Card.Link className='linkStyle' target='_blank' href={item.saleInfo.buyLink}>Acquista il libro</Card.Link>    
+                        <Link to={`/DetailedBookComponent/${item.id}`}><Card.Text className='goToPageStyle'>Vai alla pagina dettagliata</Card.Text></Link> 
                     </Card.Body>
                 </Card>
             ))}
