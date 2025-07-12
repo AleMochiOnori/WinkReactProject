@@ -1,8 +1,0 @@
-.pagination{
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-    list-style: none; /* <-- aggiungi questa riga */
-    padding-left: 0;
-    gap: 20px;
-}

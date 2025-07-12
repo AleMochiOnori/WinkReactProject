@@ -105,8 +105,12 @@ const MainComponent = () => {
     return (
         <>
         <div className='menuContainer'>
+            <div className='searchContainer'>
             <SearchBarComponent setSearchTerm={filterTerm}/>
-            <DropdownMenu value={postPerPage} onSelect={(val) => { setPostPerPage(val); setCurrentPage(1); }} />
+            </div>
+            <div className='dropdownContainer'>
+                 <DropdownMenu  value={postPerPage} onSelect={(val) => { setPostPerPage(val); setCurrentPage(1); }} />
+            </div>
         </div>
         <div className='mainContainer'>
             {books.items && books.items.map((item) => (
