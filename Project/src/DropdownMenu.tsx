@@ -32,11 +32,6 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({ value, onSelect }) => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-useEffect(() => {
-  const rememberValue = localStorage.getItem('dropdownValue');
-})
-  
-
   return (
     <div className="dropdown-container" ref={menuRef}>
       <button className="dropdown-toggle" onClick={toggleMenu}>
