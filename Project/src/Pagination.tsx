@@ -11,6 +11,8 @@ const Pagination: React.FC<PaginationProps> = ({ totalPosts, postPerPage, onPage
     pages.push(i);
   }
 
+
+
   return (
     <nav className="pagination-container">
       <ul className="pagination">

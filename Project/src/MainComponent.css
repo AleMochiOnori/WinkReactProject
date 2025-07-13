@@ -71,6 +71,7 @@ input::placeholder {
     .menuContainer {
         flex-direction: column;
         align-items: center;
+        justify-content: center;
     }
 
     .dropdownContainer {
