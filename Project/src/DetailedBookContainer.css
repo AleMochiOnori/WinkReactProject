@@ -17,13 +17,9 @@
     align-items: center;
     gap: 20px;
     justify-content: center;
-
-    /* Riduci padding per ridurre la dimensione del box */
     padding: 2rem;
-
-    /* Imposta una larghezza fissa o massima */
     width: 100%;
-    margin: 0 auto; /* Per centrare il box */
+    margin: 0 auto;
     border: #333 2px solid;
     background-color: rgb(48, 46, 46);
 }

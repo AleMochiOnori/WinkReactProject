@@ -26,7 +26,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({ value, onSelect }) => {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
         setOpen(false);
       }
-    };
+  };
 
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);

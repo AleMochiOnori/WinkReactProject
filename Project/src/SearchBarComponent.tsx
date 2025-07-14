@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './SearchBarComponent.css';
+
+
 interface Props {
   setSearchTerm: (term: string) => void;
 }

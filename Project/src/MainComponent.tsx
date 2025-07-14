@@ -43,7 +43,7 @@ interface VolumeInfo {
     
 
 const MainComponent = () => {
-    const [books, setBooks] = useState<BooksApiResponse | null>(null); // Stato per memorizzare la risposta
+    const [books, setBooks] = useState<BooksApiResponse | null>(null); 
     const [error, setError] = useState<string | null>(null);
     const [currentPage, setCurrentPage] = useState(1);
     const [postPerPage, setPostPerPage] = useState(10);
@@ -122,7 +122,6 @@ const MainComponent = () => {
                 </Card>
             ))}
         </div>
-            {/* Paginazione */}
             <ReactPaginate
                 breakLabel="..."
                 nextLabel="next >"
@@ -143,8 +142,6 @@ const MainComponent = () => {
                 breakLinkClassName="page-link"
                 activeClassName="active"
             />
-
-            
         </>
     );
 }
