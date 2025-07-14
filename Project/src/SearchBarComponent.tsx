@@ -23,9 +23,14 @@ const SearchBarComponent: React.FC<Props> = ({ setSearchTerm }) => {
         onChange={e => setInput(e.target.value)}
         style={{ marginRight: '0.5rem' }}
       />
-      <button type="submit">Cerca</button>
+      <button className='buttonStyle' type="submit">Cerca</button>
     </form>
   );
 };
 
 export default SearchBarComponent;
+
+
+
+
+

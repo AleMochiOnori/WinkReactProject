@@ -43,7 +43,11 @@ interface VolumeInfo {
     
 
 const MainComponent = () => {
+<<<<<<< HEAD
     const [books, setBooks] = useState<BooksApiResponse | null>(null); 
+=======
+    const [books, setBooks] = useState<BooksApiResponse | null>(null);
+>>>>>>> refs/remotes/origin/main
     const [error, setError] = useState<string | null>(null);
     const [currentPage, setCurrentPage] = useState(1);
     const [postPerPage, setPostPerPage] = useState(10);
@@ -59,7 +63,7 @@ const MainComponent = () => {
                 return response.json();
             })
             .then(data => {
-                setBooks(data); // Imposta direttamente i dati ricevuti
+                setBooks(data); 
             })
             .catch(error => {
                 console.error('Errore:', error);
@@ -105,8 +109,12 @@ const MainComponent = () => {
     return (
         <>
         <div className='menuContainer'>
+            <div className='searchContainer'>
             <SearchBarComponent setSearchTerm={filterTerm}/>
-            <DropdownMenu value={postPerPage} onSelect={(val) => { setPostPerPage(val); setCurrentPage(1); }} />
+            </div>
+            <div className='dropdownContainer'>
+                 <DropdownMenu  value={postPerPage} onSelect={(val) => { setPostPerPage(val); setCurrentPage(1); }} />
+            </div>
         </div>
         <div className='mainContainer'>
             {books.items && books.items.map((item) => (

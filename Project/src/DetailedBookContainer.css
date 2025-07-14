@@ -19,9 +19,13 @@
     justify-content: center;
     padding: 2rem;
     width: 100%;
+<<<<<<< HEAD
     margin: 0 auto;
+=======
+    margin: 0 auto; 
+>>>>>>> refs/remotes/origin/main
     border: #333 2px solid;
-    background-color: rgb(48, 46, 46);
+    background: linear-gradient(135deg, #000000, #1a1a1a, #333333);
 }
 
 .titleStyle {
@@ -87,5 +91,42 @@ body {
     color: white;
     transition: 0.3s;
     width: 14rem;
-    height: 3.5rem;
+    height: 3.5rem; 
+}
+
+@media (max-width: 768px) {
+   
+    .ImageStyle {
+        width: 150px;
+        height: 225px;
+    }
+
+    .titleStyle {
+        font-size: 2rem;
+    }
+
+    .buyStyle {
+        width: 10rem;
+        height: 2rem;
+        font-size: 16px;
+    }
+}
+
+
+@media (max-width: 380px) {
+   
+    .ImageStyle {
+        width: 150px;
+        height: 225px;
+    }
+
+    .titleStyle {
+        font-size: 1.5rem;
+    }
+
+    .buyStyle {
+        width: 10rem;
+        height: 2rem;
+        font-size: 16px;
+    }
 }
