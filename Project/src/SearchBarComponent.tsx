@@ -6,13 +6,17 @@ interface Props {
   setSearchTerm: (term: string) => void;
 }
 
+
 const SearchBarComponent: React.FC<Props> = ({ setSearchTerm }) => {
   const [input, setInput] = useState('');
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSearchTerm(input);
   };
+
+
+
+  
 
   return (
     <form className='search-input' onSubmit={handleSubmit}>

@@ -27,7 +27,7 @@
     padding: 3rem;
     background: linear-gradient(135deg, #000000, #1a1a1a, #333333);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
+} 
 input::placeholder {
   color: #ffffff; /* colore grigio chiaro */
   opacity: 1;  /* assicura che il colore sia visibile */
@@ -38,7 +38,7 @@ input::placeholder {
     justify-content: space-evenly;
     gap: 10rem;
     padding: 5rem;
-    align-items: center;
+    background: rgb(223, 226, 220);
 }
 
 .linkStyle {
@@ -62,6 +62,27 @@ input::placeholder {
     font-weight: bolder;
     color : rgb(206, 25, 25);
 }
+
+.mainComponent .page-item.active .page-link {
+     background: linear-gradient(135deg, #000000, #1a1a1a, #333333);
+     border: none;
+     color: #ffffff;
+}
+
+.mainComponent .page-link {
+     background: linear-gradient(135deg, #000000, #1a1a1a, #333333);
+     border: none;
+     color: #ffffff;
+}
+.mainComponent .page-link:hover {
+     background: linear-gradient(135deg, #000000, #1a1a1a, #333333);
+     border: none;
+     color: #ffffff;
+     transform: scaleY(1.10);
+     
+     transition: 0.3s ease-in-out;
+}
+
 
 
 

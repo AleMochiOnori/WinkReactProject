@@ -19,11 +19,7 @@
     justify-content: center;
     padding: 2rem;
     width: 100%;
-<<<<<<< HEAD
     margin: 0 auto;
-=======
-    margin: 0 auto; 
->>>>>>> refs/remotes/origin/main
     border: #333 2px solid;
     background: linear-gradient(135deg, #000000, #1a1a1a, #333333);
 }

@@ -43,11 +43,7 @@ interface VolumeInfo {
     
 
 const MainComponent = () => {
-<<<<<<< HEAD
-    const [books, setBooks] = useState<BooksApiResponse | null>(null); 
-=======
     const [books, setBooks] = useState<BooksApiResponse | null>(null);
->>>>>>> refs/remotes/origin/main
     const [error, setError] = useState<string | null>(null);
     const [currentPage, setCurrentPage] = useState(1);
     const [postPerPage, setPostPerPage] = useState(10);
@@ -107,7 +103,7 @@ const MainComponent = () => {
    
 
     return (
-        <>
+        <div className='mainComponent'>
         <div className='menuContainer'>
             <div className='searchContainer'>
             <SearchBarComponent setSearchTerm={filterTerm}/>
@@ -150,7 +146,7 @@ const MainComponent = () => {
                 breakLinkClassName="page-link"
                 activeClassName="active"
             />
-        </>
+        </div>
     );
 }
 export default MainComponent;

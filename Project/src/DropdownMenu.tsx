@@ -16,8 +16,10 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({ value, onSelect }) => {
   };
 
   const handleSelect = (value: number) => {
-    if (onSelect) onSelect(value);
-    setOpen(false);
+    if (onSelect){
+        onSelect(value);
+    }
+    setOpen(prev => !prev);
   };
 
 
